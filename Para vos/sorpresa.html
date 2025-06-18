@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>¿Aún estás aquí? 💫</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="login-box">
+    <h1>Una última pregunta...</h1>
+    <p>Si de verdad deseas seguir, ingresa la clave:</p>
+    <input type="password" id="clave2" placeholder="mes12/dia06/año2023" />
+    <br><br>
+    <button class="boton" onclick="validarClave2()">Aceptar</button>
+    <p id="mensaje-error2" style="color:red;"></p>
+  </div>
+
+  <div class="container" id="mensaje-amor" style="display: none;">
+    <h1>Mi promesa para ti 💘</h1>
+    <p>
+      Gracias por seguir creyendo en nosotros. <br><br>
+      Te prometo mejorar, luchar por ti y hacerte feliz. <br>
+      Porque tú eres mi hogar, mi amor, mi todo. 💖
+    </p>
+    <a href="index.html" class="boton">Volver al inicio</a>
+  </div>
+
+  <script>
+    function validarClave2() {
+      const clave = document.getElementById("clave2").value.trim();
+       if (clave === "30/19/0706") {
+        document.getElementById("login-box").style.display = "none";
+        document.getElementById("mensaje-amor").style.display = "block";
+      } else {
+        document.getElementById("mensaje-error2").innerText = "Clave incorrecta 💔";
+      }
+    }
+  </script>
+</body>
+</html>

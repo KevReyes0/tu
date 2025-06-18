@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Acceso privado</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenida, mi amor 💕</h1>
+    <p>Ingresa la clave para continuar:</p>
+    <input 
+      type="text" 
+      id="clave1" 
+      value="30/19/0706" 
+      style="color: gray;" 
+      onfocus="switchToPassword(this)" 
+      autocomplete="off"
+    />
+    <br /><br />
+    <button class="boton" onclick="validarClave1()">Entrar</button>
+    <p id="mensaje-error1" style="color: red;"></p>
+  </div>
+
+  <script>
+    function switchToPassword(input) {
+      if (input.value === "30/19/0706") {
+        input.value = "";
+        input.type = "password";
+        input.style.color = "black";
+      }
+    }
+
+    function validarClave1() {
+      const input = document.getElementById("clave1");
+      const clave = input.value;
+      if (clave === "30/19/0706") {
+        window.location.href = "index.html";
+      } else {
+        document.getElementById("mensaje-error1").innerText = "Clave incorrecta 💔";
+      }
+    }
+  </script>
+</body>
+</html>

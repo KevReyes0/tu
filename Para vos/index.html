@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lo siento, mi amor 💔</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .mensaje {
+      font-size: 20px;
+      color: #444;
+      margin-top: 20px;
+      white-space: pre-line;
+      min-height: 140px;
+    }
+
+    .corazon {
+      position: absolute;
+      font-size: 24px;
+      animation: flotarCorazon 6s infinite ease-in;
+      color: #ec407a;
+      pointer-events: none;
+    }
+
+    @keyframes flotarCorazon {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-600px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lo siento... 💔</h1>
+    <div id="mensaje" class="mensaje"></div>
+    <a href="sorpresa.html" class="boton">Haz clic si aún crees en nosotros 💖</a>
+<a href="adios.html" class="boton" style="background-color: gray; margin-top: 10px;">Si no quieres seguir...</a>
+
+  </div>
+
+  <script>
+    const texto = `Sé que cometí errores, que no siempre fui lo que mereces...\n\nPero cada día que pasa me doy cuenta de cuánto te amo.\n\nGracias por tu amor, tu paciencia y por no rendirte.`;
+    let i = 0;
+    const velocidad = 40;
+    const elemento = document.getElementById("mensaje");
+
+    function escribir() {
+      if (i < texto.length) {
+        elemento.innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escribir, velocidad);
+      }
+    }
+
+    escribir();
+
+    // Corazones flotantes
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.innerText = "💖";
+      corazon.style.left = Math.random() * window.innerWidth + "px";
+      corazon.style.top = "100%";
+      document.body.appendChild(corazon);
+
+      setTimeout(() => {
+        corazon.remove();
+      }, 6000);
+    }
+
+    setInterval(crearCorazon, 500);
+  </script>
+</body>
+</html>
